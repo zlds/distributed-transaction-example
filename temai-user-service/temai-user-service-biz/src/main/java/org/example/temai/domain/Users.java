@@ -25,7 +25,7 @@ public class Users extends Base {
 	/**
 	 * 用户id
 	 */
-	private String id;
+	private Long id;
 
 	/**
 	 * 用户名
