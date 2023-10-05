@@ -1,4 +1,8 @@
-package org.example.service;
+package org.example.temai.service;
+
+import org.example.temai.controller.vo.UsersInfoVO;
+
+import java.util.List;
 
 /**
  * @author: hanchaowei
@@ -11,5 +15,5 @@ public interface IUsersService {
 	 * 查询用户列表
 	 * @return
 	 */
-	List<UsersVO> listUsers();
+	List<UsersInfoVO> listUsers();
 }

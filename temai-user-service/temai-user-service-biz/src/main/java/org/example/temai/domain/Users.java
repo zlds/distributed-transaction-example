@@ -1,4 +1,4 @@
-package org.example.domain;
+package org.example.temai.domain;
 
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.AllArgsConstructor;
@@ -75,7 +75,7 @@ public class Users extends Base {
 	/**
 	 * 最后登录时间
 	 */
-	private Date lastLogin;
+	private Date lastLoginDate;
 
 	/**
 	 * 最后登录ip
