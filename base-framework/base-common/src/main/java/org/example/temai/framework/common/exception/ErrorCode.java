@@ -1,14 +1,13 @@
 package org.example.temai.framework.common.exception;
 
 import org.example.temai.framework.common.exception.enums.GlobalErrorCodeConstants;
-import org.example.temai.framework.common.exception.enums.ServiceErrorCodeRange;
 import lombok.Data;
 
 /**
  * 错误码对象
  *
  * 全局错误码，占用 [0, 999], 参见 {@link GlobalErrorCodeConstants}
- * 业务异常错误码，占用 [1 000 000 000, +∞)，参见 {@link ServiceErrorCodeRange}
+ * 业务异常错误码，占用 [1 000 000 000, +∞)，
  *
  * TODO 错误码设计成对象的原因，为未来的 i18 国际化做准备
  */
@@ -29,4 +28,11 @@ public class ErrorCode {
         this.msg = message;
     }
 
+	public Integer getCode() {
+		return code;
+	}
+
+	public String getMsg() {
+		return msg;
+	}
 }

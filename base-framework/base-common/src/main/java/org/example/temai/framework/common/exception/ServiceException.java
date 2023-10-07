@@ -1,7 +1,6 @@
 package org.example.temai.framework.common.exception;
 
 import org.example.temai.framework.common.exception.enums.GlobalErrorCodeConstants;
-import org.example.temai.framework.common.exception.enums.ServiceErrorCodeRange;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -12,55 +11,52 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = true)
 public final class ServiceException extends RuntimeException {
 
-    /**
-     * 业务错误码
-     *
-     * @see ServiceErrorCodeRange
-     */
-    private Integer code;
-    /**
-     * 错误提示
-     */
-    private String message;
+	/**
+	 * 业务错误码
+	 *
+	 * @see ServiceErrorCodeRange
+	 */
+	private Integer code;
+	/**
+	 * 错误提示
+	 */
+	private String message;
 
-    /**
-     * 空构造方法，避免反序列化问题
-     */
-    public ServiceException() {
-    }
+	/**
+	 * 空构造方法，避免反序列化问题
+	 */
+	public ServiceException() {
+	}
 
-    public ServiceException(String message) {
-        this.code = GlobalErrorCodeConstants.INTERNAL_SERVER_ERROR.getCode();
-        this.message = message;
-    }
+	public ServiceException(String message) {
+		this.code = GlobalErrorCodeConstants.INTERNAL_SERVER_ERROR.getCode();
+		this.message = message;
+	}
 
-    public ServiceException(ErrorCode errorCode) {
-        this.code = errorCode.getCode();
-        this.message = errorCode.getMsg();
-    }
+	public ServiceException(ErrorCode errorCode) {
+		this.code = errorCode.getCode();
+		this.message = errorCode.getMsg();
+	}
 
-    public ServiceException(Integer code, String message) {
-        this.code = code;
-        this.message = message;
-    }
+	public ServiceException(Integer code, String message) {
+		this.code = code;
+		this.message = message;
+	}
 
-    public Integer getCode() {
-        return code;
-    }
 
-    public ServiceException setCode(Integer code) {
-        this.code = code;
-        return this;
-    }
+	public ServiceException setCode(Integer code) {
+		this.code = code;
+		return this;
+	}
 
-    @Override
-    public String getMessage() {
-        return message;
-    }
+	@Override
+	public String getMessage() {
+		return message;
+	}
 
-    public ServiceException setMessage(String message) {
-        this.message = message;
-        return this;
-    }
+	public ServiceException setMessage(String message) {
+		this.message = message;
+		return this;
+	}
 
 }

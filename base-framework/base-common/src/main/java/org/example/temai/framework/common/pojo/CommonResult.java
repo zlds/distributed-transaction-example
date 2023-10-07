@@ -1,11 +1,11 @@
 package org.example.temai.framework.common.pojo;
 
+import cn.hutool.core.lang.Assert;
 import org.example.temai.framework.common.exception.ErrorCode;
 import org.example.temai.framework.common.exception.ServiceException;
 import org.example.temai.framework.common.exception.enums.GlobalErrorCodeConstants;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
-import org.springframework.util.Assert;
 
 import java.io.Serializable;
 import java.util.Objects;
