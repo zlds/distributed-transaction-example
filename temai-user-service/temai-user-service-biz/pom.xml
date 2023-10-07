@@ -6,26 +6,20 @@
     <parent>
         <groupId>org.example</groupId>
         <artifactId>temai-user-service</artifactId>
-        <version>1.0-SNAPSHOT</version>
+        <version>${revision}</version>
     </parent>
 
     <artifactId>temai-user-service-biz</artifactId>
-
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>org.example</groupId>
-                <artifactId>base-dependencies</artifactId>
-                <version>1.0.0</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
-
+    <name>${project.artifactId}</name>
 
 
     <dependencies>
+        <dependency>
+            <groupId>org.example</groupId>
+            <artifactId>base-common</artifactId>
+            <version>${revision}</version>
+        </dependency>
+
         <!-- 引入 Spring Cloud Gateway 相关依赖，使用它作为网关，并实现对其的自动配置 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -73,12 +67,6 @@
             <scope>test</scope>
         </dependency>
 
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.18.22</version>
-            <scope>compile</scope>
-        </dependency>
     </dependencies>
 
 </project>

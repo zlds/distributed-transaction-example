@@ -43,9 +43,7 @@
         <guava.version>27.0-jre</guava.version>
         <hutool.version>5.8.15</hutool.version>
 
-        <maven.compiler.source>8</maven.compiler.source>
-        <maven.compiler.target>8</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <swagger-annotations.version>1.6.6</swagger-annotations.version>
     </properties>
 
     <dependencyManagement>
@@ -159,6 +157,12 @@
                 <groupId>cn.hutool</groupId>
                 <artifactId>hutool-all</artifactId>
                 <version>${hutool.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.swagger</groupId>
+                <artifactId>swagger-annotations</artifactId>
+                <version>${swagger-annotations.version}</version>
             </dependency>
 
         </dependencies>
