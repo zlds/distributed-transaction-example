@@ -14,13 +14,13 @@ import java.util.Date;
  * @date 2023/10/2
  * @description:
  */
-@TableName(value = "users")
+@TableName(value = "user")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 @Accessors(chain = true)
-public class Users extends Base {
+public class User extends Base {
 
 	/**
 	 * 用户id

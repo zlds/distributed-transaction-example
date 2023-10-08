@@ -19,7 +19,7 @@ import lombok.experimental.Accessors;
 @AllArgsConstructor
 @Builder
 @Accessors(chain = true)
-public class UsersPoints extends Base {
+public class UserPoints extends Base {
 
 	/**
 	 * id

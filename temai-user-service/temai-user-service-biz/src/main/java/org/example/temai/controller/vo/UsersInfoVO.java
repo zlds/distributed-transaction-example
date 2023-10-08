@@ -14,7 +14,7 @@ public class UsersInfoVO {
 	/**
 	 * 用户id
 	 */
-	private String id;
+	private Long id;
 
 	/**
 	 * 用户名
