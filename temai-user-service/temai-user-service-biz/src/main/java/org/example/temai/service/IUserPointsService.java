@@ -17,10 +17,12 @@ public interface IUserPointsService {
 
 	/**
 	 * 扣减用户积分
-	 * @param userId
-	 * @param points
+	 * @param userId 用户id
+	 * @param points 积分
+	 * @param pointType 来源id
+	 * @param transactionId 来源类型
 	 */
-	void subtractUserPoints(Long userId, Integer points);
+	void subtractUserPoints(Long userId, Integer points, Long transactionId, Integer pointType);
 
 	/**
 	 * 查询用户积分

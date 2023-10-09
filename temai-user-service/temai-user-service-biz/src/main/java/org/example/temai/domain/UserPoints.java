@@ -1,6 +1,7 @@
 package org.example.temai.domain;
 
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.annotation.Version;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -13,7 +14,7 @@ import lombok.experimental.Accessors;
  * @description: 用户积分
  */
 
-@TableName(value = "users_points")
+@TableName(value = "user_points")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -40,4 +41,10 @@ public class UserPoints extends Base {
 	 * 会员等级
 	 */
 	private Integer memberLevel;
+
+	/**
+	 * 版本
+	 */
+	@Version
+	private Integer version;
 }

@@ -16,5 +16,5 @@ import org.example.temai.domain.PointDetails;
  * @description:
  */
 @Mapper
-public interface PointDetailsMapper extends BaseMapper<PointDetails> {
+public interface UserPointDetailsMapper extends BaseMapper<PointDetails> {
 }

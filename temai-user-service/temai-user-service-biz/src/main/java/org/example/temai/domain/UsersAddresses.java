@@ -12,7 +12,7 @@ import lombok.experimental.Accessors;
  * @date 2023/10/5
  * @description: 用户地址
  */
-@TableName(value = "users_addresses")
+@TableName(value = "user_addresses")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

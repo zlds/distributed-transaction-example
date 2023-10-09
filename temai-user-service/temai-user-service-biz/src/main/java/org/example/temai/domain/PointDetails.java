@@ -31,6 +31,11 @@ public class PointDetails extends Base {
 	private Long userId;
 
 	/**
+	 * 积分id
+	 */
+	private Long userPointId;
+
+	/**
 	 * 变更日期
 	 */
 	private String changeDate;
@@ -40,8 +45,15 @@ public class PointDetails extends Base {
 	 */
 	private Integer changeAmount;
 
+
 	/**
-	 * 变更原因
+	 * 积分类型(订单,抽奖,签到,活动等,推荐等)
 	 */
-	private String reason;
+	private Integer pointType;
+
+	/**
+	 * 事件id(唯一性)
+	 */
+	private Long transactionId;
+
 }
