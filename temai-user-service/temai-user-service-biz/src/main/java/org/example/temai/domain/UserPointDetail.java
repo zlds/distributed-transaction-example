@@ -12,13 +12,13 @@ import lombok.experimental.Accessors;
  * @date 2023/10/6
  * @description: 积分明细
  */
-@TableName(value = "point_details")
+@TableName(value = "user_point_detail")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 @Accessors(chain = true)
-public class PointDetails extends Base {
+public class UserPointDetail extends Base {
 
 	/**
 	 * id

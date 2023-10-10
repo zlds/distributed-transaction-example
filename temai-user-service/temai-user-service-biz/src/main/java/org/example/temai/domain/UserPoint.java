@@ -14,13 +14,13 @@ import lombok.experimental.Accessors;
  * @description: 用户积分
  */
 
-@TableName(value = "user_points")
+@TableName(value = "user_point")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 @Accessors(chain = true)
-public class UserPoints extends Base {
+public class UserPoint extends Base {
 
 	/**
 	 * id
@@ -35,7 +35,7 @@ public class UserPoints extends Base {
 	/**
 	 * 当前积分
 	 */
-	private Integer currentPoints;
+	private Integer currentPoint;
 
 	/**
 	 * 会员等级

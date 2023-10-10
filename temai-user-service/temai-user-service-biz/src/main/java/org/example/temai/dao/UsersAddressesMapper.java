@@ -2,7 +2,7 @@ package org.example.temai.dao;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
-import org.example.temai.domain.UsersAddresses;
+import org.example.temai.domain.UserAddress;
 
 /**
  * @author: hanchaowei
@@ -10,5 +10,5 @@ import org.example.temai.domain.UsersAddresses;
  * @description:
  */
 @Mapper
-public interface UsersAddressesMapper extends BaseMapper<UsersAddresses> {
+public interface UsersAddressesMapper extends BaseMapper<UserAddress> {
 }

@@ -13,7 +13,7 @@ public interface IUserPointsService {
 	 * @param userId
 	 * @param points
 	 */
-	void addUserPoints(Long userId, Integer points);
+	void addUserPoints(Long userId, Integer points, Long transactionId, Integer pointType);
 
 	/**
 	 * 扣减用户积分

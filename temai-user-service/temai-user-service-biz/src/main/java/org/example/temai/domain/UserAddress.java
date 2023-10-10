@@ -12,13 +12,13 @@ import lombok.experimental.Accessors;
  * @date 2023/10/5
  * @description: 用户地址
  */
-@TableName(value = "user_addresses")
+@TableName(value = "user_address")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 @Accessors(chain = true)
-public class UsersAddresses extends Base {
+public class UserAddress extends Base {
 
 	/**
 	 * id
