@@ -10,16 +10,16 @@ import org.example.temai.framework.common.domain.Base;
 
 /**
  * @author: hanchaowei
- * @date 2023/10/6
- * @description: 积分明细
+ * @date 2023/10/11
+ * @description:
  */
-@TableName(value = "user_point_detail")
+@TableName(value = "order")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 @Accessors(chain = true)
-public class UserPointDetail extends Base {
+public class Order extends Base {
 
 	/**
 	 * id
@@ -32,29 +32,23 @@ public class UserPointDetail extends Base {
 	private Long userId;
 
 	/**
-	 * 积分id
+	 * 订单总金额
 	 */
-	private Long userPointId;
+	private Double totalPrice;
 
 	/**
-	 * 变更日期
+	 * 订单状态
 	 */
-	private String changeDate;
+	private Integer orderStatus;
 
 	/**
-	 * 变更积分
+	 * 支付状态
 	 */
-	private Integer changeAmount;
-
-
-	/**
-	 * 积分类型(订单,抽奖,签到,活动等,推荐等)
-	 */
-	private Integer pointType;
+	private Integer paymentStatus;
 
 	/**
-	 * 事件id(唯一性)
+	 * 支付时间
 	 */
-	private Long transactionId;
+	private String paymentTime;
 
 }

@@ -13,7 +13,9 @@
 		<module>temai-user-service</module>
 		<module>temai-order-service</module>
         <module>temai-inventory-service</module>
-	</modules>
+        <module>temai-order-service/temai-order-service-api</module>
+        <module>temai-order-service/temai-order-service-biz</module>
+    </modules>
 
 	<name>${project.artifactId}</name>
 	<description>基础脚手架</description>

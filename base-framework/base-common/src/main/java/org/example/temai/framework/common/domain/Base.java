@@ -1,4 +1,4 @@
-package org.example.temai.domain;
+package org.example.temai.framework.common.domain;
 
 import java.util.Date;
 

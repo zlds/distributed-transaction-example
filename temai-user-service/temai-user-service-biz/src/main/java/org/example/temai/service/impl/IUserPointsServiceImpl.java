@@ -5,6 +5,7 @@ import org.example.temai.dao.UserPointDetailsMapper;
 import org.example.temai.dao.UserPointsMapper;
 import org.example.temai.domain.UserPointDetail;
 import org.example.temai.domain.UserPoint;
+import org.example.temai.framework.common.enums.PointEnum;
 import org.example.temai.framework.common.exception.ServiceException;
 import org.example.temai.framework.common.util.SnowflakeIdUtils;
 import org.example.temai.service.IUserPointsService;
@@ -27,6 +28,18 @@ public class IUserPointsServiceImpl implements IUserPointsService {
 	@Override
 	@Transactional(rollbackFor = Exception.class)
 	public void addUserPoints(Long userId, Integer points, Long transactionId, Integer pointType) {
+		// 查询用户积分
+		QueryWrapper<UserPoint> queryWrapper = new QueryWrapper<>();
+		queryWrapper.eq("user_id", userId);
+		UserPoint userPoints = userPointsMapper.selectOne(queryWrapper);
+
+		// 如果是订单类型积分，判断是否已经完成支付。
+		if (pointType.equals(PointEnum.ORDER.getType())) {
+			// 查询订单支付已经支付
+			// TODO 未完成
+		}
+
+
 		// 添加积分
 		UserPoint userPoint = new UserPoint();
 		userPoint.setId(SnowflakeIdUtils.nextId());
@@ -71,6 +84,9 @@ public class IUserPointsServiceImpl implements IUserPointsService {
 
 	@Override
 	public Integer getUserPoints(Long userId) {
-		return null;
+		QueryWrapper<UserPoint> queryWrapper = new QueryWrapper<>();
+		queryWrapper.eq("user_id", userId);
+		UserPoint userPoint = userPointsMapper.selectOne(queryWrapper);
+		return userPoint.getCurrentPoint();
 	}
 }
