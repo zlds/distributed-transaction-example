@@ -1,8 +1,8 @@
 package org.example.temai.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import org.example.temai.dao.UserPointDetailsMapper;
-import org.example.temai.dao.UserPointsMapper;
+import org.example.temai.dao.UserPointDetailMapper;
+import org.example.temai.dao.UserPointMapper;
 import org.example.temai.domain.UserPointDetail;
 import org.example.temai.domain.UserPoint;
 import org.example.temai.framework.common.enums.PointEnum;
@@ -21,9 +21,9 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 public class IUserPointsServiceImpl implements IUserPointsService {
 	@Autowired
-	private UserPointsMapper userPointsMapper;
+	private UserPointMapper userPointMapper;
 	@Autowired
-	private UserPointDetailsMapper userPointDetailsMapper;
+	private UserPointDetailMapper userPointDetailMapper;
 
 	@Override
 	@Transactional(rollbackFor = Exception.class)
@@ -31,7 +31,7 @@ public class IUserPointsServiceImpl implements IUserPointsService {
 		// 查询用户积分
 		QueryWrapper<UserPoint> queryWrapper = new QueryWrapper<>();
 		queryWrapper.eq("user_id", userId);
-		UserPoint userPoints = userPointsMapper.selectOne(queryWrapper);
+		UserPoint userPoints = userPointMapper.selectOne(queryWrapper);
 
 		// 如果是订单类型积分，判断是否已经完成支付。
 		if (pointType.equals(PointEnum.ORDER.getType())) {
@@ -45,7 +45,7 @@ public class IUserPointsServiceImpl implements IUserPointsService {
 		userPoint.setId(SnowflakeIdUtils.nextId());
 		userPoint.setUserId(userId);
 		userPoint.setCurrentPoint(points);
-		userPointsMapper.insert(userPoint);
+		userPointMapper.insert(userPoint);
 		// 添加积分明细
 		UserPointDetail userPointDetail = new UserPointDetail();
 		userPointDetail.setUserPointId(userPoint.getId());
@@ -53,7 +53,7 @@ public class IUserPointsServiceImpl implements IUserPointsService {
 		userPointDetail.setPointType(pointType);
 		userPointDetail.setChangeAmount(points);
 		userPointDetail.setTransactionId(transactionId);
-		userPointDetailsMapper.insert(userPointDetail);
+		userPointDetailMapper.insert(userPointDetail);
 	}
 
 	@Override
@@ -61,7 +61,7 @@ public class IUserPointsServiceImpl implements IUserPointsService {
 		// 查询用户积分
 		QueryWrapper<UserPoint> queryWrapper2 = new QueryWrapper<>();
 		queryWrapper2.eq("user_id", userId);
-		UserPoint userPoint = userPointsMapper.selectOne(queryWrapper2);
+		UserPoint userPoint = userPointMapper.selectOne(queryWrapper2);
 		if (userPoint == null) {
 			throw new ServiceException("用户积分不存在");
 		}
@@ -78,7 +78,7 @@ public class IUserPointsServiceImpl implements IUserPointsService {
 			throw new ServiceException("用户积分不足");
 		}
 		userPoint.setCurrentPoint(nowPoints);
-		int updateCount = userPointsMapper.updateById(userPoint);
+		int updateCount = userPointMapper.updateById(userPoint);
 		// 更新积分明细 TODO 未完成
 	}
 
@@ -86,7 +86,7 @@ public class IUserPointsServiceImpl implements IUserPointsService {
 	public Integer getUserPoints(Long userId) {
 		QueryWrapper<UserPoint> queryWrapper = new QueryWrapper<>();
 		queryWrapper.eq("user_id", userId);
-		UserPoint userPoint = userPointsMapper.selectOne(queryWrapper);
+		UserPoint userPoint = userPointMapper.selectOne(queryWrapper);
 		return userPoint.getCurrentPoint();
 	}
 }

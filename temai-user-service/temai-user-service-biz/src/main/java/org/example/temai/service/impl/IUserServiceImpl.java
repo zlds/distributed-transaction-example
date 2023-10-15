@@ -3,7 +3,7 @@ package org.example.temai.service.impl;
 import org.example.temai.controller.vo.UserReq;
 import org.example.temai.controller.vo.UsersInfoVO;
 import org.example.temai.convert.UsersConvert;
-import org.example.temai.dao.UsersMapper;
+import org.example.temai.dao.UserMapper;
 import org.example.temai.domain.User;
 import org.example.temai.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,23 +21,23 @@ import java.util.stream.Collectors;
 public class IUserServiceImpl implements IUserService {
 
 	@Autowired
-	private UsersMapper usersMapper;
+	private UserMapper userMapper;
 
 	@Override
 	public List<UsersInfoVO> listUsers() {
-		List<User> users = usersMapper.selectList(null);
+		List<User> users = userMapper.selectList(null);
 		return users.stream().map(s -> convertToUsersInfoVO(s)).collect(Collectors.toList());
 	}
 
 
 	@Override
 	public void addUser(UserReq userReq) {
-		usersMapper.insert(UsersConvert.convert(userReq));
+		userMapper.insert(UsersConvert.convert(userReq));
 	}
 
 	@Override
 	public void deleteUser(Long id) {
-		int result = usersMapper.deleteById(id);
+		int result = userMapper.deleteById(id);
 	}
 
 	private UsersInfoVO convertToUsersInfoVO(User user) {

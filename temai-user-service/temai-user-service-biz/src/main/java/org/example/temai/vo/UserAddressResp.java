@@ -1,25 +1,22 @@
-package org.example.temai.domain;
+package org.example.temai.vo;
 
-import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
-import org.example.temai.framework.common.domain.Base;
 
 /**
  * @author: hanchaowei
- * @date 2023/10/5
- * @description: 用户地址
+ * @date 2023/10/15
+ * @description:
  */
-@TableName(value = "user_address")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 @Accessors(chain = true)
-public class UserAddress extends Base {
+public class UserAddressResp {
 
 	/**
 	 * id
@@ -65,9 +62,4 @@ public class UserAddress extends Base {
 	 * 邮政编码
 	 */
 	private String postalCode;
-
-	/**
-	 * 是否为默认地址: false-否, true-是
-	 */
-	private Boolean isDefault;
 }

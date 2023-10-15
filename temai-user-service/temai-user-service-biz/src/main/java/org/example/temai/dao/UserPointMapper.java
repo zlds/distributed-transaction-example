@@ -1,14 +1,8 @@
 package org.example.temai.dao;
 
-/**
- * @author: hanchaowei
- * @date 2023/10/6
- * @description:
- */
-
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
-import org.example.temai.domain.UserPointDetail;
+import org.example.temai.domain.UserPoint;
 
 /**
  * @author: hanchaowei
@@ -16,5 +10,5 @@ import org.example.temai.domain.UserPointDetail;
  * @description:
  */
 @Mapper
-public interface UserPointDetailsMapper extends BaseMapper<UserPointDetail> {
+public interface UserPointMapper extends BaseMapper<UserPoint> {
 }
