@@ -1,7 +1,8 @@
 package org.example.temai.service;
 
-import org.example.temai.controller.vo.UserReq;
-import org.example.temai.controller.vo.UsersInfoVO;
+import org.example.temai.api.user.dto.UserInfoRespDTO;
+import org.example.temai.vo.UserReq;
+import org.example.temai.vo.UsersInfoVO;
 
 import java.util.List;
 
@@ -31,5 +32,10 @@ public interface IUserService {
 	 */
 	void deleteUser(Long id);
 
-
+	/**
+	 * 根据用户id查询用户信息
+	 * @param id
+	 * @return
+	 */
+	UserInfoRespDTO getUserById(Long id);
 }

@@ -1,6 +1,6 @@
 package org.example.temai.controller;
 
-import org.example.temai.controller.vo.UserReq;
+import org.example.temai.vo.UserReq;
 import org.example.temai.framework.common.pojo.CommonResult;
 import org.example.temai.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;

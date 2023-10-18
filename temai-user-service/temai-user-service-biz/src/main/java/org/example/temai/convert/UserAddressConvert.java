@@ -1,5 +1,6 @@
 package org.example.temai.convert;
 
+import org.example.temai.api.user.dto.UserAddressRespDTO;
 import org.example.temai.domain.UserAddress;
 import org.example.temai.vo.UserAddressReq;
 import org.example.temai.framework.common.util.SnowflakeIdUtils;
@@ -39,6 +40,18 @@ public class UserAddressConvert {
 		return UserAddressResp.builder()
 				.id(address.getId())
 				.userId(address.getUserId())
+				.recipientName(address.getRecipientName())
+				.phone(address.getPhone())
+				.province(address.getProvince())
+				.city(address.getCity())
+				.district(address.getDistrict())
+				.streetAddress(address.getStreetAddress())
+				.postalCode(address.getPostalCode())
+				.build();
+	}
+
+	public static UserAddressRespDTO convertToRespDTO(UserAddress address) {
+		return UserAddressRespDTO.builder()
 				.recipientName(address.getRecipientName())
 				.phone(address.getPhone())
 				.province(address.getProvince())

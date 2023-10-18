@@ -1,6 +1,7 @@
 package org.example.temai.convert;
 
-import org.example.temai.controller.vo.UserReq;
+import org.example.temai.api.user.dto.UserInfoRespDTO;
+import org.example.temai.vo.UserReq;
 import org.example.temai.domain.User;
 import org.example.temai.framework.common.util.SnowflakeIdUtils;
 
@@ -22,5 +23,14 @@ public class UsersConvert {
 		user.setPhone(userReq.getPhone());
 		user.setBirthdate(userReq.getBirthdate());
 		return user;
+	}
+
+	public static UserInfoRespDTO convertDTO(User user) {
+		UserInfoRespDTO userInfoRespDTO = new UserInfoRespDTO();
+		userInfoRespDTO.setUserId(user.getId());
+		userInfoRespDTO.setUsername(user.getUsername());
+		userInfoRespDTO.setNickName(user.getUsername());
+		userInfoRespDTO.setPhone(user.getPhone());
+		return userInfoRespDTO;
 	}
 }

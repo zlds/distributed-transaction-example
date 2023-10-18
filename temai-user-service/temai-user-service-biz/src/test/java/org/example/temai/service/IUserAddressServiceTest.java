@@ -41,9 +41,11 @@ class IUserAddressServiceTest {
 
 	@Test
 	void deleteAddress() {
+		iUserAddressService.deleteAddress(1L);
 	}
 
 	@Test
 	void getDefaultAddress() {
+		iUserAddressService.getDefaultAddress(1L);
 	}
 }

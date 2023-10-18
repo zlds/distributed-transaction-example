@@ -1,7 +1,8 @@
 package org.example.temai.service.impl;
 
-import org.example.temai.controller.vo.UserReq;
-import org.example.temai.controller.vo.UsersInfoVO;
+import org.example.temai.api.user.dto.UserInfoRespDTO;
+import org.example.temai.vo.UserReq;
+import org.example.temai.vo.UsersInfoVO;
 import org.example.temai.convert.UsersConvert;
 import org.example.temai.dao.UserMapper;
 import org.example.temai.domain.User;
@@ -40,10 +41,22 @@ public class IUserServiceImpl implements IUserService {
 		int result = userMapper.deleteById(id);
 	}
 
+
+	@Override
+	public UserInfoRespDTO getUserById(Long id) {
+		User user = userMapper.selectById(id);
+		if (user != null) {
+			return UsersConvert.convertDTO(user);
+		}
+		return new UserInfoRespDTO();
+	}
+
 	private UsersInfoVO convertToUsersInfoVO(User user) {
 		UsersInfoVO usersInfoVO = new UsersInfoVO();
 		usersInfoVO.setId(user.getId());
 		usersInfoVO.setUsername(user.getUsername());
 		return usersInfoVO;
 	}
+
+
 }

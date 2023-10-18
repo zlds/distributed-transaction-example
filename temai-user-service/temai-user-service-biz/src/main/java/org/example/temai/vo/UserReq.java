@@ -1,4 +1,4 @@
-package org.example.temai.controller.vo;
+package org.example.temai.vo;
 
 import lombok.Data;
 

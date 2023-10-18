@@ -16,6 +16,11 @@
     <dependencies>
         <dependency>
             <groupId>org.example</groupId>
+            <artifactId>temai-user-service-api</artifactId>
+            <version>${revision}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.example</groupId>
             <artifactId>base-common</artifactId>
             <version>${revision}</version>
         </dependency>
