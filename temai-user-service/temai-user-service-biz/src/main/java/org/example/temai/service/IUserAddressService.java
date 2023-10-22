@@ -51,5 +51,5 @@ public interface IUserAddressService {
 	 * @param addressId
 	 * @return
 	 */
-	UserAddressResp getAddressById(Long addressId);
+	UserAddress getAddressById(Long addressId);
 }

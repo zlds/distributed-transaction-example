@@ -35,9 +35,22 @@ public interface UserApi {
 
 	/**
 	 * 根据userId获取用户地址
+	 * @param userId
+	 * @return
 	 */
 	@GetMapping(PREFIX + "/getAddressByUserId")
 	@ApiOperation("根据userId查询地址")
 	@ApiImplicitParam(name = "userId", value = "用户id", example = "100", required = true)
 	CommonResult<List<UserAddressRespDTO>> getAddressByUserId(@RequestParam("userId") Long userId);
+
+	/**
+	 * 根据地址id获取地址信息
+	 * @param addressId
+	 * @return
+	 */
+	@GetMapping(PREFIX + "/getAddressInfoById")
+	@ApiOperation("根据地址id获取地址信息")
+	@ApiImplicitParam(name = "addressId", value = "100", example = "100", required = true)
+	CommonResult<UserAddressRespDTO> getAddressInfoById(@RequestParam("addressId") Long addressId);
+
 }

@@ -36,6 +36,11 @@ public class UserAddressConvert {
 				.build();
 	}
 
+	/**
+	 * 转换为响应
+	 * @param address
+	 * @return
+	 */
 	public static UserAddressResp convertToResp(UserAddress address) {
 		return UserAddressResp.builder()
 				.id(address.getId())
@@ -50,6 +55,11 @@ public class UserAddressConvert {
 				.build();
 	}
 
+	/**
+	 * 转换为响应DTO
+	 * @param address
+	 * @return
+	 */
 	public static UserAddressRespDTO convertToRespDTO(UserAddress address) {
 		return UserAddressRespDTO.builder()
 				.recipientName(address.getRecipientName())

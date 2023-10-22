@@ -8,6 +8,7 @@ import org.example.temai.domain.UserAddress;
 import org.example.temai.framework.common.pojo.CommonResult;
 import org.example.temai.service.IUserAddressService;
 import org.example.temai.service.IUserService;
+import org.example.temai.vo.UserAddressResp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -44,19 +45,9 @@ public class UserApiImpl implements UserApi {
 	}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	@Override
+	public CommonResult<UserAddressRespDTO> getAddressInfoById(Long addressId) {
+		UserAddress address = iUserAddressService.getAddressById(addressId);
+		return CommonResult.success(UserAddressConvert.convertToRespDTO(address));
+	}
 }

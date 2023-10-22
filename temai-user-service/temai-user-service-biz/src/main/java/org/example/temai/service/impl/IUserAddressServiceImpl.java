@@ -59,11 +59,9 @@ public class IUserAddressServiceImpl implements IUserAddressService {
 	}
 
 	@Override
-	public UserAddressResp getAddressById(Long addressId) {
+	public UserAddress getAddressById(Long addressId) {
 		QueryWrapper<UserAddress> queryWrapper = new QueryWrapper<>();
 		queryWrapper.eq("id", addressId);
-		UserAddress userAddress = userAddressMapper.selectOne(queryWrapper);
-		return UserAddressConvert.convertToResp(userAddress);
-
+		return userAddressMapper.selectOne(queryWrapper);
 	}
 }
