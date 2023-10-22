@@ -15,11 +15,11 @@ import java.util.List;
 public interface IUserAddressService {
 
 	/**
-	 * 根据userId获取用户地址
+	 * 根据userId获取用户地址列表
 	 * @param userId
 	 * @return
 	 */
-	List<UserAddress> getAddressByUserId(Long userId);
+	List<UserAddress> getAddressListByUserId(Long userId);
 
 	/**
 	 * 新增用户地址
@@ -45,4 +45,11 @@ public interface IUserAddressService {
 	 * @return
 	 */
 	UserAddressResp getDefaultAddress(Long userId);
+
+	/**
+	 * 根据id获取地址
+	 * @param addressId
+	 * @return
+	 */
+	UserAddressResp getAddressById(Long addressId);
 }

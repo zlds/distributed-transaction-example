@@ -24,7 +24,7 @@ public class IUserAddressServiceImpl implements IUserAddressService {
 	private UserAddressMapper userAddressMapper;
 
 	@Override
-	public List<UserAddress> getAddressByUserId(Long userId) {
+	public List<UserAddress> getAddressListByUserId(Long userId) {
 		QueryWrapper<UserAddress> queryWrapper = new QueryWrapper<>();
 		queryWrapper.eq("user_id", userId);
 		return userAddressMapper.selectList(queryWrapper);
@@ -56,5 +56,14 @@ public class IUserAddressServiceImpl implements IUserAddressService {
 		queryWrapper.eq("is_default", 1);
 		UserAddress userAddress = userAddressMapper.selectOne(queryWrapper);
 		return UserAddressConvert.convertToResp(userAddress);
+	}
+
+	@Override
+	public UserAddressResp getAddressById(Long addressId) {
+		QueryWrapper<UserAddress> queryWrapper = new QueryWrapper<>();
+		queryWrapper.eq("id", addressId);
+		UserAddress userAddress = userAddressMapper.selectOne(queryWrapper);
+		return UserAddressConvert.convertToResp(userAddress);
+
 	}
 }

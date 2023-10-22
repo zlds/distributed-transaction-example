@@ -36,7 +36,7 @@ public class UserApiImpl implements UserApi {
 
 	@Override
 	public CommonResult<List<UserAddressRespDTO>> getAddressByUserId(Long userId) {
-		List<UserAddress> userAddressList = iUserAddressService.getAddressByUserId(userId);
+		List<UserAddress> userAddressList = iUserAddressService.getAddressListByUserId(userId);
 		List<UserAddressRespDTO> userAddressRespDTOList = userAddressList.stream()
 				.map(UserAddressConvert::convertToRespDTO)
 				.collect(Collectors.toList());
