@@ -19,6 +19,11 @@
             <artifactId>base-common</artifactId>
             <version>${revision}</version>
         </dependency>
+        <dependency>
+            <groupId>org.example</groupId>
+            <artifactId>temai-user-service-api</artifactId>
+            <version>${revision}</version>
+        </dependency>
 
         <!-- 引入 Spring Cloud Gateway 相关依赖，使用它作为网关，并实现对其的自动配置 -->
         <dependency>
