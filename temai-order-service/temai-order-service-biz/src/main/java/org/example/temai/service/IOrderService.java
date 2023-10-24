@@ -15,10 +15,9 @@ public interface IOrderService {
 	/**
 	 * 创建订单
 	 * @param addressId 收货地址
-	 * @param paymentMethod 支付方式
 	 * @param productList 商品列表
 	 */
-	void createOrder(Long addressId, String paymentMethod, List<ProductItemReq> productList);
+	void createOrder(Long addressId, List<ProductItemReq> productList);
 
 	/**
 	 * 查询订单

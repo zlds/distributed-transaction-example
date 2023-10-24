@@ -20,5 +20,23 @@ public class ProductItemReq {
 	 */
 	private Integer productQuantity;
 
+	/**
+	 * 商品名称
+	 */
+	private String productName;
 
+	/**
+	 * 商品sku
+	 */
+	private Long skuId;
+
+	/**
+	 * 店铺id
+	 */
+	private Long shopId;
+
+	/**
+	 * 店铺名称
+	 */
+	private String shopName;
 }

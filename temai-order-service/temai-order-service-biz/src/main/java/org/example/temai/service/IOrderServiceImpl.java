@@ -8,10 +8,13 @@ import org.example.temai.framework.common.pojo.CommonResult;
 import org.example.temai.vo.ProductItemReq;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import javax.annotation.Resource;
 import java.util.List;
 import java.util.stream.Collectors;
+
+import static org.example.temai.framework.common.exception.enums.ErrorCodeConstants.*;
+import static org.example.temai.framework.common.exception.util.ServiceExceptionUtil.exception;
+
 
 /**
  * @author: hanchaowei
@@ -26,9 +29,9 @@ public class IOrderServiceImpl implements IOrderService {
 
 
 	@Override
-	public void createOrder(Long addressId, String paymentMethod, List<ProductItemReq> productList) {
-		if (addressId == null || paymentMethod == null || productList == null) {
-			throw new RuntimeException("参数错误");
+	public void createOrder(Long addressId, List<ProductItemReq> productList) {
+		if (addressId == null || productList == null) {
+			throw exception(PARAM_ERROR);
 		}
 
 		// 检查库存 TODO 未实现库存服务功能
@@ -36,11 +39,9 @@ public class IOrderServiceImpl implements IOrderService {
 
 
 		// 1. 校验收货地址
-
 		UserAddressRespDTO addressInfo = userApi.getAddressInfoById(addressId).getData();
-
 		if (ObjectUtil.isNull(addressInfo)) {
-			throw new RuntimeException("收货地址不存在");
+			throw exception(ADDRESS_NOT_EXIST);
 		}
 
 		// 2. 校验支付方式
