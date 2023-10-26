@@ -14,7 +14,7 @@ public interface IProductStockService {
 	 * @param quantity 数量
 	 * @return
 	 */
-	boolean deduct(Long productId, Integer quantity);
+	Integer deduct(Long productId, Integer quantity);
 
 	/**
 	 * 增加库存
@@ -22,7 +22,7 @@ public interface IProductStockService {
 	 * @param quantity 数量
 	 * @return
 	 */
-	boolean add(Long productId, Integer quantity);
+	Integer add(Long productId, Integer quantity);
 
 	/**
 	 * 获取库存
