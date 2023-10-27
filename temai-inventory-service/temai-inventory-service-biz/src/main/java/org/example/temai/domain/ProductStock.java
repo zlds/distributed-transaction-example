@@ -1,6 +1,7 @@
 package org.example.temai.domain;
 
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.annotation.Version;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -39,5 +40,11 @@ public class ProductStock {
 	 * 库存警告阈值
 	 */
 	private Integer alertLevel;
+
+	/**
+	 * 版本
+	 */
+	@Version
+	private Integer version;
 
 }

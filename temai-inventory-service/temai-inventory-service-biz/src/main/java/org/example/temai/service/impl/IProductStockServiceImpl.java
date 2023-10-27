@@ -5,6 +5,7 @@ import org.example.temai.dao.ProductStockMapper;
 import org.example.temai.domain.ProductStock;
 import org.example.temai.domain.ProductStockLog;
 import org.example.temai.framework.common.enums.ProductStockOperationTypeEnum;
+import org.example.temai.service.IProductStockLogService;
 import org.example.temai.service.IProductStockService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,7 +24,7 @@ public class IProductStockServiceImpl implements IProductStockService {
 	@Autowired
 	private ProductStockMapper productStockMapper;
 	@Autowired
-	private ProductStockLogMapper productStockLogMapper;
+	private IProductStockLogService iProductStockLogService;
 
 	@Override
 	@Transactional(rollbackFor = Exception.class)
@@ -61,32 +62,39 @@ public class IProductStockServiceImpl implements IProductStockService {
 				.operationTime(new Date())
 				.operationType(operationType)
 				.build();
-		productStockLogMapper.insert(productStockLog);
+		iProductStockLogService.add(productStockLog);
 		return productStockLog.getQuantity();
 	}
 
 	@Override
 	public Integer getStock(Long productId) {
-		return null;
+		ProductStock productStock = productStockMapper.findByProductId(productId);
+		if (productStock != null) {
+			return productStock.getQuantity();
+		}
+		return -1;
 	}
 
 	@Override
 	public Integer getAlertLevel(Long productId) {
-		return null;
+		ProductStock productStock = productStockMapper.findByProductId(productId);
+		return productStock.getAlertLevel();
 	}
 
 	@Override
 	public boolean setAlertLevel(Long productId, Integer alertLevel) {
-		return false;
+		ProductStock productStock = productStockMapper.findByProductId(productId);
+		if (productStock == null) {
+			return false;
+		}
+		productStock.setAlertLevel(productStock.getAlertLevel() + alertLevel);
+		int updatedRows = productStockMapper.updateById(productStock);
+		return updatedRows > 0;
 	}
 
 	@Override
-	public boolean getAlertStatus(Long productId) {
-		return false;
-	}
-
-	@Override
-	public boolean setAlertStatus(Long productId, boolean alertStatus) {
-		return false;
+	public boolean isBelowAlertLevel(Long productId) {
+		ProductStock productStock = productStockMapper.findByProductId(productId);
+		return productStock.getQuantity() <= productStock.getAlertLevel();
 	}
 }

@@ -47,17 +47,9 @@ public interface IProductStockService {
 	boolean setAlertLevel(Long productId, Integer alertLevel);
 
 	/**
-	 * 获取库存预警状态
+	 * 检查商品是否低于预警阈值
 	 * @param productId 商品id
-	 * @return
+	 * @return true 如果低于阈值，否则 false
 	 */
-	boolean getAlertStatus(Long productId);
-
-	/**
-	 * 设置库存预警状态
-	 * @param productId 商品id
-	 * @param alertStatus 预警状态
-	 * @return
-	 */
-	boolean setAlertStatus(Long productId, boolean alertStatus);
+	boolean isBelowAlertLevel(Long productId);
 }
