@@ -26,6 +26,30 @@ public class IProductStockServiceImpl implements IProductStockService {
 	@Autowired
 	private IProductStockLogService iProductStockLogService;
 
+
+	@Override
+	@Transactional(rollbackFor = Exception.class)
+	public Integer stockIn(Long productId, Integer quantity) {
+		ProductStock addProductStock = new ProductStock();
+		addProductStock.setProductId(productId);
+		addProductStock.setQuantity(quantity);
+		// TODO 操作人id临时写死
+		addProductStock.setOperatorId("1");
+		productStockMapper.insert(addProductStock);
+		// 记录日志
+		ProductStockLog productStockLog = ProductStockLog.
+						builder()
+				.productId(productId)
+				.quantity(quantity)
+				.previousStock(addProductStock.getQuantity())
+				.currentStock(addProductStock.getQuantity())
+				.operationTime(new Date())
+				.operationType(ProductStockOperationTypeEnum.STOCK_IN.getType())
+				.build();
+		iProductStockLogService.add(productStockLog);
+		return addProductStock.getQuantity();
+	}
+
 	@Override
 	@Transactional(rollbackFor = Exception.class)
 	public Integer deduct(Long productId, Integer quantity) {
@@ -87,7 +111,10 @@ public class IProductStockServiceImpl implements IProductStockService {
 		if (productStock == null) {
 			return false;
 		}
-		productStock.setAlertLevel(productStock.getAlertLevel() + alertLevel);
+		if (productStock.getAlertLevel() != null) {
+			productStock.setAlertLevel(productStock.getAlertLevel() + alertLevel);
+		}
+		productStock.setAlertLevel(alertLevel);
 		int updatedRows = productStockMapper.updateById(productStock);
 		return updatedRows > 0;
 	}

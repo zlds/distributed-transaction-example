@@ -7,6 +7,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
+import org.example.temai.framework.common.domain.Base;
 
 /**
  * @author: hanchaowei
@@ -19,7 +20,7 @@ import lombok.experimental.Accessors;
 @AllArgsConstructor
 @Builder
 @Accessors(chain = true)
-public class ProductStock {
+public class ProductStock extends Base {
 
 	/**
 	 * id

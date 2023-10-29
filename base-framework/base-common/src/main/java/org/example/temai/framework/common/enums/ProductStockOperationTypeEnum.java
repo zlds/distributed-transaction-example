@@ -13,6 +13,11 @@ import lombok.Getter;
 public enum ProductStockOperationTypeEnum {
 
 	/**
+	 * 入库
+	 */
+	STOCK_IN(0, "入库"),
+
+	/**
 	 * 添加库存
 	 */
 	ADD(1, "添加库存"),

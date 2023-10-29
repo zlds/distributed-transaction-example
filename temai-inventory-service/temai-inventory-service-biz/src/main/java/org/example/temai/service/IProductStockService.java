@@ -9,6 +9,13 @@ package org.example.temai.service;
 public interface IProductStockService {
 
 	/**
+	 * 商品入库
+	 * @param productId
+	 * @param quantity
+	 */
+	Integer stockIn(Long productId, Integer quantity);
+
+	/**
 	 * 扣减库存
 	 * @param productId 商品id
 	 * @param quantity 数量

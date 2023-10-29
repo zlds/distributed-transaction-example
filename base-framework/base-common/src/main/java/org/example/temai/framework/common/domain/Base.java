@@ -1,5 +1,11 @@
 package org.example.temai.framework.common.domain;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.experimental.Accessors;
+
 import java.util.Date;
 
 /**
@@ -7,7 +13,7 @@ import java.util.Date;
  * @date 2023/10/2
  * @description:
  */
-
+@Data
 public class Base {
 
 	/**
