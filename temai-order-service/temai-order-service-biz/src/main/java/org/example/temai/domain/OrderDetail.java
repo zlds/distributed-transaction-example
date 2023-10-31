@@ -18,7 +18,7 @@ import lombok.experimental.Accessors;
 @AllArgsConstructor
 @Builder
 @Accessors(chain = true)
-public class OrderDetail {
+public class OrderDetail extends Base {
 
 	/**
 	 * id
