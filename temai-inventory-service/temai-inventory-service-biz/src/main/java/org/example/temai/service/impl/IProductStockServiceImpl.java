@@ -1,10 +1,12 @@
 package org.example.temai.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import org.example.temai.dao.ProductStockLogMapper;
 import org.example.temai.dao.ProductStockMapper;
 import org.example.temai.domain.ProductStock;
 import org.example.temai.domain.ProductStockLog;
 import org.example.temai.framework.common.enums.ProductStockOperationTypeEnum;
+import org.example.temai.framework.common.exception.ServiceException;
 import org.example.temai.service.IProductStockLogService;
 import org.example.temai.service.IProductStockService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -72,10 +74,18 @@ public class IProductStockServiceImpl implements IProductStockService {
 		if (operationType.equals(ProductStockOperationTypeEnum.ADD.getType())) {
 			productStock.setQuantity(currentQuantity + quantity);
 		} else if (operationType.equals(ProductStockOperationTypeEnum.DEDUCT.getType())) {
+			if (currentQuantity < quantity) {
+				// 当前库存不足，不能扣减
+				throw new ServiceException("库存不足，无法扣减");
+			}
 			productStock.setQuantity(currentQuantity - quantity);
 		}
+		UpdateWrapper<ProductStock> updateWrapper = new UpdateWrapper<>();
+		updateWrapper.eq("id", productStock.getId())
+				.set("quantity", productStock.getQuantity());
+
 		// 更新库存
-		productStockMapper.updateById(productStock);
+		productStockMapper.update(null, updateWrapper);
 		// 记录日志
 		ProductStockLog productStockLog = ProductStockLog.
 						builder()
