@@ -17,12 +17,12 @@ class IProductStockServiceTest {
 	}
 	@Test
 	void deduct() {
-		iProductStockService.deduct(1L, 7);
+		iProductStockService.deduct(2L, 7);
 	}
 
 	@Test
 	void add() {
-		iProductStockService.add(1L, 10);
+		iProductStockService.add(2L, 10);
 	}
 
 	@Test
