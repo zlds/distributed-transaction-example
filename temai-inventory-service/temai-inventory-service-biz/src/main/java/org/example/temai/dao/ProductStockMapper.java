@@ -5,6 +5,8 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 import org.example.temai.domain.ProductStock;
 
+import java.util.List;
+
 /**
  * @author: hanchaowei
  * @date 2023/10/25
@@ -20,4 +22,11 @@ public interface ProductStockMapper extends BaseMapper<ProductStock> {
 	 */
 	@Select("select * from product_stock where product_id = #{productId}")
 	ProductStock findByProductId(Long productId);
+
+	/**
+	 * 根据商品id列表查询库存
+	 * @param productIds
+	 * @return
+	 */
+	List<ProductStock> findByProductIds(List<Long> productIds);
 }

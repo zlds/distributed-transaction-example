@@ -1,5 +1,9 @@
 package org.example.temai.service;
 
+import org.example.temai.dto.ProductStockDTO;
+
+import java.util.List;
+
 /**
  * @author: hanchaowei
  * @date 2023/10/25
@@ -59,4 +63,11 @@ public interface IProductStockService {
 	 * @return true 如果低于阈值，否则 false
 	 */
 	boolean isBelowAlertLevel(Long productId);
+
+	/**
+	 * 根据商品id列表获取商品数据
+	 * @param productIdList
+	 * @return
+	 */
+	List<ProductStockDTO> getStockListByProductIds(List<Long> productIdList);
 }

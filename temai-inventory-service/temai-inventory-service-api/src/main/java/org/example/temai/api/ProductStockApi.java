@@ -28,7 +28,7 @@ public interface ProductStockApi {
 	@GetMapping(PREFIX + "/getStockList")
 	@ApiOperation("根据商品id列表获取商品数据")
 	@ApiImplicitParam(name = "productIdList", value = "商品id列表", example = "100", required = true)
-	CommonResult<List<ProductStockDTO>> getStockList(@RequestParam("productIdList") List<Long> productIdList);
+	CommonResult<List<ProductStockDTO>> getStockListByProductIds(@RequestParam("productIdList") List<Long> productIdList);
 
 
 

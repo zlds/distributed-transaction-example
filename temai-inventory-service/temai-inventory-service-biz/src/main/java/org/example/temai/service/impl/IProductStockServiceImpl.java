@@ -5,6 +5,7 @@ import org.example.temai.dao.ProductStockLogMapper;
 import org.example.temai.dao.ProductStockMapper;
 import org.example.temai.domain.ProductStock;
 import org.example.temai.domain.ProductStockLog;
+import org.example.temai.dto.ProductStockDTO;
 import org.example.temai.framework.common.enums.ProductStockOperationTypeEnum;
 import org.example.temai.framework.common.exception.ServiceException;
 import org.example.temai.service.IProductStockLogService;
@@ -13,7 +14,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * @author: hanchaowei
@@ -133,5 +136,20 @@ public class IProductStockServiceImpl implements IProductStockService {
 	public boolean isBelowAlertLevel(Long productId) {
 		ProductStock productStock = productStockMapper.findByProductId(productId);
 		return productStock.getQuantity() <= productStock.getAlertLevel();
+	}
+
+	@Override
+	public List<ProductStockDTO> getStockListByProductIds(List<Long> productIdList) {
+		List<ProductStockDTO> result = new ArrayList<>();
+		List<ProductStock> productStockList = productStockMapper.findByProductIds(productIdList);
+		if (productStockList != null) {
+			for (ProductStock productStock : productStockList) {
+				ProductStockDTO productStockDTO = new ProductStockDTO();
+				productStockDTO.setProductId(productStock.getProductId());
+				productStockDTO.setStock(productStock.getQuantity());
+				result.add(productStockDTO);
+			}
+		}
+		return result;
 	}
 }

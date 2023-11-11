@@ -16,7 +16,7 @@ public class ProductStockDTO {
 	private Long productId;
 
 	/**
-	 * 库存
+	 * 库存数量
 	 */
 	private Integer stock;
 
