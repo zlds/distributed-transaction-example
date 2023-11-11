@@ -11,6 +11,7 @@ import org.example.temai.service.IUserService;
 import org.example.temai.vo.UserAddressResp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -20,7 +21,7 @@ import java.util.stream.Collectors;
  * @date 2023/10/18
  * @description:
  */
-@Service
+@RestController
 public class UserApiImpl implements UserApi {
 
 	@Autowired

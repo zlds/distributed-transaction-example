@@ -3,6 +3,7 @@ package org.example.temai;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 
 /**
  * @author: hanchaowei
@@ -11,6 +12,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 @SpringBootApplication
 @MapperScan("org.example.temai.dao")
+@EnableFeignClients(basePackages = "org.example.temai.api")
 public class OrderServiceApplication {
 
 	public static void main(String[] args) {
