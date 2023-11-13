@@ -72,7 +72,7 @@ public class ServiceExceptionUtil {
 		return new ServiceException(code, message);
 	}
 
-	public static ServiceException exception1(Integer code, String message) {
+	public static ServiceException exceptionCommon(Integer code, String message) {
 		return new ServiceException(code, message);
 	}
 

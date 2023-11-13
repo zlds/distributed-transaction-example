@@ -20,4 +20,9 @@ public interface ErrorCodeConstants {
 	 * 用户地址不存在
 	 */
 	ErrorCode ADDRESS_NOT_EXIST = new ErrorCode(20000, "用户地址不存在");
+
+	/**
+	 * 商品不存在
+	 */
+	ErrorCode PRODUCT_NOT_EXIST = new ErrorCode(30000, "商品不存在");
 }
