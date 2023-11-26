@@ -28,7 +28,7 @@ public class Base {
 	/**
 	 * 操作人
 	 */
-	private String operatorId;
+	private Long operatorId;
 
 	/**
 	 * 是否删除

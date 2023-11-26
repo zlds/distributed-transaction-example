@@ -48,7 +48,7 @@ public class Product extends Base {
 	/**
 	 * 商品价格
 	 */
-	private Double price;
+	private Long price;
 
 	/**
 	 * 商品缩略图
@@ -64,5 +64,10 @@ public class Product extends Base {
 	 * 商品状态
 	 */
 	private String status;
+
+	/**
+	 * 店铺ID
+	 */
+	private Long shopId;
 
 }

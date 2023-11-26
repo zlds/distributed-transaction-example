@@ -39,7 +39,7 @@ public class IProductStockServiceImpl implements IProductStockService {
 		addProductStock.setProductId(productId);
 		addProductStock.setQuantity(quantity);
 		// TODO 操作人id临时写死
-		addProductStock.setOperatorId("1");
+		addProductStock.setOperatorId(1L);
 		productStockMapper.insert(addProductStock);
 		// 记录日志
 		ProductStockLog productStockLog = ProductStockLog.

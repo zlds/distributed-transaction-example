@@ -43,7 +43,7 @@ public class OrderDetail extends Base {
 	/**
 	 * 商品单价
 	 */
-	private Double productPrice;
+	private Long productPrice;
 
 	/**
 	 * 商品数量
@@ -53,7 +53,7 @@ public class OrderDetail extends Base {
 	/**
 	 * 子订单总金额
 	 */
-	private Double totalPrice;
+	private Long totalPrice;
 
 	/**
 	 * 子订单状态

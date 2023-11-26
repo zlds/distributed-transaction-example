@@ -26,6 +26,11 @@ public class Order extends Base {
 	private Long id;
 
 	/**
+	 * 订单流水号
+	 */
+	private String orderNumber;
+
+	/**
 	 * 用户id
 	 */
 	private Long userId;
@@ -33,7 +38,7 @@ public class Order extends Base {
 	/**
 	 * 订单总金额
 	 */
-	private Double totalPrice;
+	private Long totalPrice;
 
 	/**
 	 * 订单状态

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.example.temai.dao.OrderDetailMapper">
+
+
+    <insert id="batchInsert" parameterType="java.util.List">
+        <foreach collection="list" item="item" index="index" separator=";">
+            insert into order_detail
+            <trim prefix="(" suffix=")" suffixOverrides=",">
+                <if test="item.id != null">
+                    id,
+                </if>
+                <if test="item.orderId != null">
+                    order_id,
+                </if>
+                <if test="item.productId != null">
+                    product_id,
+                </if>
+                <if test="item.supplierId != null">
+                    supplier_id,
+                </if>
+                <if test="item.productPrice != null">
+                    product_price,
+                </if>
+                <if test="item.productTotal != null">
+                    product_total,
+                </if>
+                <if test="item.totalPrice != null">
+                    total_price,
+                </if>
+                <if test="item.orderStatus != null">
+                    order_status,
+                </if>
+                <if test="item.shipmentStatus != null">
+                    shipment_status,
+                </if>
+                <if test="item.shipmentTime != null">
+                    shipment_time,
+                </if>
+            </trim>
+            <trim prefix="VALUES (" suffix=")" suffixOverrides=",">
+                <if test="item.id != null">
+                    #{item.id,jdbcType=BIGINT},
+                </if>
+                <if test="item.orderId != null">
+                    #{item.orderId,jdbcType=BIGINT},
+                </if>
+                <if test="item.productId != null">
+                    #{item.productId,jdbcType=BIGINT},
+                </if>
+                <if test="item.supplierId != null">
+                    #{item.supplierId,jdbcType=BIGINT},
+                </if>
+                <if test="item.productPrice != null">
+                    #{item.productPrice,jdbcType=BIGINT},
+                </if>
+                <if test="item.productTotal != null">
+                    #{item.productTotal,jdbcType=INTEGER},
+                </if>
+                <if test="item.totalPrice != null">
+                    #{item.totalPrice,jdbcType=BIGINT},
+                </if>
+                <if test="item.orderStatus != null">
+                    #{item.orderStatus,jdbcType=INTEGER},
+                </if>
+                <if test="item.shipmentStatus != null">
+                    #{item.shipmentStatus,jdbcType=INTEGER},
+                </if>
+                <if test="item.shipmentTime != null">
+                    #{item.shipmentTime,jdbcType=VARCHAR},
+                </if>
+            </trim>
+        </foreach>
+    </insert>
+
+</mapper>
