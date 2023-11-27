@@ -1,7 +1,9 @@
 package org.example.temai.service;
 
+import org.example.temai.controller.vo.ProductReq;
 import org.example.temai.dao.ProductMapper;
 import org.example.temai.domain.Product;
+import org.example.temai.framework.common.util.SnowflakeIdUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -33,13 +35,22 @@ public class IProductServiceImpl implements IProductService {
 	}
 
 	@Override
-	public void deleteProduct() {
-
+	public void deleteProduct(Long id) {
+		int i = productMapper.deleteById(id);
 	}
 
 	@Override
-	public void createProduct() {
-
+	public void createProduct(ProductReq productReq) {
+		Product product = new Product();
+		product.setId(SnowflakeIdUtils.nextId());
+		product.setProductName(productReq.getProductName());
+		product.setDescription(productReq.getDescription());
+		product.setPrice(productReq.getPrice());
+		product.setBrandId(productReq.getBrandId());
+		product.setCategoryId(productReq.getCategoryId());
+		product.setStatus(1);
+		product.setShopId(productReq.getShopId());
+		productMapper.insert(product);
 	}
 
 	@Override

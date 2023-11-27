@@ -1,6 +1,5 @@
-package org.example.temai.domain;
+package org.example.temai.controller.vo;
 
-import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -9,21 +8,15 @@ import lombok.experimental.Accessors;
 
 /**
  * @author: hanchaowei
- * @date 2023/10/24
- * @description: 商品表
+ * @date 2023/11/27
+ * @description:
  */
-@TableName(value = "product")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 @Accessors(chain = true)
-public class Product extends Base {
-
-	/**
-	 * id
-	 */
-	private Long id;
+public class ProductReq {
 
 	/**
 	 * 商品名称
@@ -69,5 +62,4 @@ public class Product extends Base {
 	 * 店铺ID
 	 */
 	private Long shopId;
-
 }

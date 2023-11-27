@@ -1,5 +1,6 @@
 package org.example.temai.service;
 
+import org.example.temai.controller.vo.ProductReq;
 import org.example.temai.domain.Product;
 
 import java.util.List;
@@ -29,13 +30,15 @@ public interface IProductService {
 
 	/**
 	 * 删除商品
+	 * @param id
 	 */
-	void deleteProduct();
+	void deleteProduct(Long id);
 
 	/**
 	 * 创建商品
+	 * @param productReq
 	 */
-	void createProduct();
+	void createProduct(ProductReq productReq);
 
 	/**
 	 * 根据商品id列表查询商品列表
