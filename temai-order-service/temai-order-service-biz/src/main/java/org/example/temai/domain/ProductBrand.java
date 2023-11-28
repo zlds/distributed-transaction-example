@@ -38,6 +38,6 @@ public class ProductBrand extends Base {
 	/**
 	 * 品牌Logo
 	 */
-	private String logo;
+	private String logoUrl;
 
 }

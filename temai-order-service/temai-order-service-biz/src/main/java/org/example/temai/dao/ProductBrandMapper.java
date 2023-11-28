@@ -2,6 +2,7 @@ package org.example.temai.dao;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
+import org.example.temai.domain.ProductBrand;
 
 /**
  * @author: hanchaowei
@@ -9,5 +10,5 @@ import org.apache.ibatis.annotations.Mapper;
  * @description:
  */
 @Mapper
-public interface ProductBrand extends BaseMapper<ProductBrand> {
+public interface ProductBrandMapper extends BaseMapper<ProductBrand> {
 }

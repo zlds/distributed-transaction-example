@@ -1,6 +1,9 @@
 package org.example.temai.vo;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * @author: hanchaowei
@@ -8,6 +11,9 @@ import lombok.Data;
  * @description: 商品
  */
 @Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class ProductItemReq {
 
 	/**
